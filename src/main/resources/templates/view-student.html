@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Student</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .student-card {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #212529;
+        }
+        .detail-label {
+            font-weight: 500;
+            color: #495057;
+        }
+        .detail-value {
+            color: #212529;
+            font-size: 16px;
+            padding-bottom: 10px;
+        }
+        .back-btn {
+            display: block;
+            margin: 30px auto 0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="student-card">
+        <h2>Details of <span th:text="${student.fName}">Student</span></h2>
+
+        <div class="mb-3">
+            <div class="detail-label">Student ID</div>
+            <div class="detail-value" th:text="${student.id}">1</div>
+        </div>
+
+        <div class="mb-3">
+            <div class="detail-label">First Name</div>
+            <div class="detail-value" th:text="${student.fName}">John</div>
+        </div>
+
+        <div class="mb-3">
+            <div class="detail-label">Last Name</div>
+            <div class="detail-value" th:text="${student.lName}">Doe</div>
+        </div>
+
+        <div class="mb-3">
+            <div class="detail-label">Email Address</div>
+            <div class="detail-value" th:text="${student.email}">john.doe@example.com</div>
+        </div>
+
+        <a th:href="@{/students}" class="btn btn-primary back-btn">← Back to List Of Students</a>
+    </div>
+</div>
+</body>
+</html>

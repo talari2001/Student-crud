@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Student - SMS</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <!--    linking bootstrap 4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        section {
+            padding: 60px 0;
+        }
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+       
+        @media (max-width:767px) {
+            #footer h5 {
+                padding-left: 0;
+                border-left: transparent;
+                padding-bottom: 0px;
+                margin-bottom: 10px;
+            }
+        }
+        h2 {
+            padding: 25px 0;
+            text-align: center;
+            color: #87cefa;
+            background: #7c8490;
+        }
+
+        button{
+            margin-right: 50px;
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">SMS</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/students">All Students</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Register Students</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container" style="padding-top: 20px">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center" style="padding-top: 10px">Register New Student to Student-MS</h1>
+            <div class="card-body">
+                <form th:action="@{/students}" th:object="${student}" method="post">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" th:field="*{fName}" placeholder="First name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" th:field="*{lName}" placeholder="Last name" required>
+                    </div>
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input required type="email" class="form-control" th:field="*{email}" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div> <br>
+                        <div class="form-check footer-body">
+                            <button type="submit" class="btn btn-primary "><i class="fas fa-user-plus ml-2"> Register Student </i></button>
+                            <button type="reset" class="btn btn-warning"><i class="fa fa-remove ml-2">Clear All</i> </button>
+                        </div>
+
+                </form>
+                <br>
+                <center> <h4>Go Back to <a th:href="@{/students}">Lists Of Students</a>  </h4></center>
+            </div>
+        </div>
+    </div>
+</div>
+</br> <br>
+</body>
+</html>
